@@ -38,9 +38,8 @@ def initialize_layer_biases(num_units):
 def initialize_layer_weights(num_units_l_1, num_units_l):
   return np.random.uniform(low=-1,high=1,size=(num_units_l_1,num_units_l))
 
-
-
-for l in range(1,config.NUM_LAYERS-1):
+def initialize_parameters():
+ for l in range(1,config.NUM_LAYERS-1):
 
 
   theta0.append(initialize_layer_biases(config.P[l])/math.sqrt(config.P[l-1]))
@@ -48,5 +47,5 @@ for l in range(1,config.NUM_LAYERS-1):
 
 
 
-theta0.append(initialize_layer_biases(config.P[l])/math.sqrt(config.P[l-1]))
-theta.append(initialize_layer_weights(config.P[l],config.P[l])/math.sqrt(config.P[l-1]))
+  theta0.append(initialize_layer_biases(config.P[l])/math.sqrt(config.P[l-1]))
+  theta.append(initialize_layer_weights(config.P[l],config.P[l])/math.sqrt(config.P[l-1]))
